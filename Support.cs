@@ -2,10 +2,11 @@ namespace Task
 {
     public class Simple
     {
-        public static void MaxCountChar(string str)
+        // retorna character com maior frequência
+        public static char MaxCountChar(string str)
         {
             Dictionary<char, int> dict = new Dictionary<char, int>();
-
+            // preenche dict com a frequencia de cada char 
             foreach(char ch in str)
             {
                 if( !dict.ContainsKey(ch) )
@@ -13,10 +14,8 @@ namespace Task
                 else
                     dict[ch]++;
             }
-
-            Console.WriteLine($"MaxCountChar : {dict.Aggregate((a, b) 
-                                                => a.Value > b.Value ? a : b).Key} (x{dict.Values.Max()})");
-
+            // verifica dict.Key com maior dict.Value correspondente
+            return dict.Aggregate((a, b) => a.Value > b.Value ? a : b).Key;
         }
     }
 }
