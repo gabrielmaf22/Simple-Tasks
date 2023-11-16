@@ -28,7 +28,7 @@ namespace Sample
         // retorna vogal com maior frequncia
         public static char VewelMaxCount(string str)
         {
-            char[] listVowels = new char[] {'a', 'e', 'i', 'o', 'u',
+            char[] arrayVowels = new char[] {'a', 'e', 'i', 'o', 'u',
                                              'A', 'E', 'I', 'O', 'U' };
                                              
             Dictionary<char, int> dict = new Dictionary<char, int>();
@@ -36,7 +36,7 @@ namespace Sample
             // preenche dict com a frequencia de cada vogal da string
             foreach( char ch in str )
             {
-                if(listVowels.Contains(ch))
+                if(arrayVowels.Contains(ch))
                 {
                     if(!dict.ContainsKey(ch))
                         dict.Add(ch, 1);
@@ -52,7 +52,7 @@ namespace Sample
         // retorna substring com maior frequencia de consoantes
         public static string SubConsoantMaxCount(string str)
         {
-            char[] listVowels = new char[] {'a', 'e', 'i', 'o', 'u',
+            char[] arrayVowels = new char[] {'a', 'e', 'i', 'o', 'u',
                                              'A', 'E', 'I', 'O', 'U' };
             
             // countConsoant possui cada indice correspondendo a cada string de subString
@@ -64,7 +64,7 @@ namespace Sample
             {
                 foreach( char ch in subStrings[rep] )
                 {
-                    if(!listVowels.Contains(ch) && !Char.IsDigit(ch))
+                    if(!arrayVowels.Contains(ch) && !Char.IsDigit(ch))
                         countConsoant[rep]++;
                 }
             }
