@@ -86,7 +86,7 @@ namespace Sample
                                              'A', 'E', 'I', 'O', 'U' };
 
             char previous;
-            // preenche dict.Values com a frequencia de ditongos
+            // preenche dict.Values com a frequencia de ditongo 
             foreach( KeyValuePair<string, int> kvp in dict )
             {   
                 previous = kvp.Key[0];
