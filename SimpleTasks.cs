@@ -100,6 +100,8 @@ namespace Sample
             }
             // verifica dict.Key com maior dict.Value correspondente
             return dict.Aggregate( (prev, next) => prev.Value > next.Value ? prev : next).Key;
+
+            // Att : ainda falta tratar para nao enquadrar tritongos
         }
     }
 }
