@@ -74,16 +74,32 @@ namespace Sample
             return subStrings[index];
         }
 
+
+        // retorna substring com maior frequencia de ditongos
+        public static string SubDiphthongMaxCount(string str)
+        {   
+            // inicializa o dicionário com cada substring separada por espaço 
+            Dictionary<string, int> dict = str.Split(' ').ToDictionary( strKey   => strKey,
+                                                                        intValue => 0 );
+
+            char[] arrayVowels = new char[] {'a', 'e', 'i', 'o', 'u',
+                                             'A', 'E', 'I', 'O', 'U' };
+
+            char previous;
+            // preenche dict.Values com a frequencia de ditongos
+            foreach( KeyValuePair<string, int> kvp in dict )
+            {   
+                previous = kvp.Key[0];
+                for(int rep = 0; rep < kvp.Key.Length; rep++)
+                {
+                    if(arrayVowels.Contains(previous) && arrayVowels.Contains(kvp.Key[rep]))
+                        dict[kvp.Key]++;
+
+                    previous = kvp.Key[rep];
+                }       
+            }
+            // verifica dict.Key com maior dict.Value correspondente
+            return dict.Aggregate( (prev, next) => prev.Value > next.Value ? prev : next).Key;
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
