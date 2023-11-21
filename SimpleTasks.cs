@@ -85,23 +85,32 @@ namespace Sample
             char[] arrayVowels = new char[] {'a', 'e', 'i', 'o', 'u',
                                              'A', 'E', 'I', 'O', 'U' };
 
-            char previous;
+            List<char> listElem = new List<char> {};
+
             // preenche dict.Values com a frequencia de ditongo 
             foreach( KeyValuePair<string, int> kvp in dict )
             {   
-                previous = kvp.Key[0];
+                // obs : atualiza se for tritongo
                 for(int rep = 0; rep < kvp.Key.Length; rep++)
-                {
-                    if(arrayVowels.Contains(previous) && arrayVowels.Contains(kvp.Key[rep]))
-                        dict[kvp.Key]++;
-
-                    previous = kvp.Key[rep];
+                {   
+                    if(arrayVowels.Contains(kvp.Key[rep]))
+                    {
+                        listElem.Add(kvp.Key[rep]);
+                        if(listElem.Count == 2)
+                        {
+                            dict[kvp.Key]++;
+                        }
+                        else if(listElem.Count > 2)
+                        {
+                            dict[kvp.Key]--;
+                        }
+                    }else {
+                        listElem.Clear();
+                    }
                 }       
             }
             // verifica dict.Key com maior dict.Value correspondente
             return dict.Aggregate( (prev, next) => prev.Value > next.Value ? prev : next).Key;
-
-            // Att : ainda falta tratar para nao enquadrar tritongos
         }
     }
 }
