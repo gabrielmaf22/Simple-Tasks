@@ -3,9 +3,9 @@ using System.Linq;
 using System.Collections.Generic;
 
 
-namespace Sample
+namespace SimpleTasks
 {
-    public class SimpleTasks
+    public class Sample
     {
 
         // retorna character com maior frequencia
