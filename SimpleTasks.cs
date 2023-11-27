@@ -6,7 +6,6 @@ namespace SimpleTasks
 {
     public class Sample
     {
-
         // retorna character com maior frequencia
         public static char CharMaxCount(string str)
         {
@@ -22,7 +21,6 @@ namespace SimpleTasks
             // verifica dict.Key com maior dict.Value correspondente
             return dict.Aggregate((a, b) => a.Value > b.Value ? a : b).Key;
         }
-
 
 
 
@@ -53,7 +51,6 @@ namespace SimpleTasks
 
 
 
-
         // retorna substring com maior frequencia de consoantes
         public static string StringConsoantMaxCount(string str)
         {
@@ -78,7 +75,6 @@ namespace SimpleTasks
             int index = Array.IndexOf(countConsoant, countConsoant.Max());
             return subStrings[index];
         }
-
 
 
 
@@ -127,7 +123,6 @@ namespace SimpleTasks
 
 
 
-
         // retorna lista com strings com tamanho acima da média 
         public static List<string> ListStringAboveAverage(List<string> listStr)
         {
@@ -154,6 +149,5 @@ namespace SimpleTasks
             return listStr;
         }   
     }
-
 }
 
