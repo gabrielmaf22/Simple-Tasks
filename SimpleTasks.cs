@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Xml.Schema;
 
 
 namespace SimpleTasks
@@ -26,7 +27,7 @@ namespace SimpleTasks
 
 
         // retorna vogal com maior frequncia
-        public static char VewelMaxCount(string str)
+        public static char CharVewelMaxCount(string str)
         {
             char[] arrayVowels = new char[] {'a', 'e', 'i', 'o', 'u',
                                              'A', 'E', 'I', 'O', 'U' };
@@ -50,7 +51,7 @@ namespace SimpleTasks
 
 
         // retorna substring com maior frequencia de consoantes
-        public static string SubConsoantMaxCount(string str)
+        public static string StringConsoantMaxCount(string str)
         {
             char[] arrayVowels = new char[] {'a', 'e', 'i', 'o', 'u',
                                              'A', 'E', 'I', 'O', 'U' };
@@ -76,7 +77,7 @@ namespace SimpleTasks
 
 
         // retorna substring com maior frequencia de ditongos
-        public static string SubDiphthongMaxCount(string str)
+        public static string StringDiphthongMaxCount(string str)
         {   
             // inicializa o dicionário com cada substring separada por espaço 
             Dictionary<string, int> dict = str.Split(' ').ToDictionary( strKey   => strKey,
@@ -112,5 +113,31 @@ namespace SimpleTasks
             // verifica dict.Key com maior dict.Value correspondente
             return dict.Aggregate( (prev, next) => prev.Value > next.Value ? prev : next).Key;
         }
+
+
+        // retorna lista com strings com tamanho acima da média 
+        public static List<string> ListStringAboveAverage(List<string> listStr)
+        {
+            int intAverage = 0;
+            
+            // preenche intAverage com o tamanho de cada string
+            foreach( string substring in listStr )
+                intAverage += substring.Length;
+            // reformula intAverage com o calculo da media de tamanho das strings
+            intAverage /= listStr.Count;
+
+            // removendo strings com tamanho inferior
+            for( int rep = 0; rep < listStr.Count; rep++ )
+            {
+                if(listStr[rep].Length <= intAverage)
+                    listStr.RemoveAt(rep);
+            }
+
+            return listStr;
+        }
     }
 }
+
+
+
+// Aggregate 
