@@ -6,6 +6,7 @@
         <> Array                     : registro de dados específicos         | tamanho fixo e mais enxuto 
                                      : quantidade conhecida                  | ex : char[] arrayVowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
                                                                              
-        <> List                      : registrar não conhecido               | tamanho variável, maior flexibilidade, praticidade
+        <> List                      : registrar de dados gerais/específicos | tamanho variável, maior flexibilidade, praticidade
                                      : quantidade desconhecida               | ex : List<char> listElem = new List<char> {};
+                                     
 # Métodos Usados / Finalidade / Justificativa
