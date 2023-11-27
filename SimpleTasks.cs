@@ -134,5 +134,11 @@ namespace SimpleTasks
 
             return listStr;
         }
+        
+        // método acima está com um problema, não está filtrando adequadamente
+        // ao remover o item, diminui a quantidade de loop e não pega todos os elementos
+        // a cada loop,o indices/elementos são reorganizados devido ao listStr.Remove()
+
+        // vou corrigir logo em breve e mostrar outra alternativa mais benéfica
     }
 }
