@@ -2,7 +2,6 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-
 namespace SimpleTasks
 {
     public class Sample
@@ -23,6 +22,9 @@ namespace SimpleTasks
             // verifica dict.Key com maior dict.Value correspondente
             return dict.Aggregate((a, b) => a.Value > b.Value ? a : b).Key;
         }
+
+
+
 
 
         // retorna vogal com maior frequncia
@@ -47,6 +49,9 @@ namespace SimpleTasks
             // verifica dict.Key com maior dict.Value correspondente
             return dict.Aggregate((a, b) => a.Value > b.Value ? a : b).Key;
         }
+
+
+
 
 
         // retorna substring com maior frequencia de consoantes
@@ -75,6 +80,9 @@ namespace SimpleTasks
         }
 
 
+
+
+
         // retorna substring com maior frequencia de ditongos
         public static string StringDiphthongMaxCount(string str)
         {   
@@ -90,34 +98,41 @@ namespace SimpleTasks
             // preenche dict.Values com a frequencia de ditongo 
             foreach( KeyValuePair<string, int> kvp in dict )
             {   
-                // obs : atualiza se for tritongo
                 for(int rep = 0; rep < kvp.Key.Length; rep++)
                 {   
+                    // processa ao encontrar elemento vogal
                     if(arrayVowels.Contains(kvp.Key[rep]))
-                    {
+                    {   
+                        // lista que serve como parâmetro de verificação
                         listElem.Add(kvp.Key[rep]);
                         if(listElem.Count == 2)
                         {
                             dict[kvp.Key]++;
                         }
+                        // remove a frequencia ao se deparar com tritongo/+
                         else if(listElem.Count > 2)
                         {
                             dict[kvp.Key]--;
                         }
-                    }else {
-                        listElem.Clear();
                     }
+                    // reseta listElem ao encontrar um elemento não vogal (consoante)
+                    else    
+                        listElem.Clear();
                 }       
             }
             // verifica dict.Key com maior dict.Value correspondente
-            return dict.Aggregate( (prev, next) => prev.Value > next.Value ? prev : next).Key;
+            return dict.Aggregate( (prev, next) => prev.Value > next.Value ? prev : next ).Key;
         }
+
+
+
 
 
         // retorna lista com strings com tamanho acima da média 
         public static List<string> ListStringAboveAverage(List<string> listStr)
         {
             int intAverage = 0;
+            List<int> listIndex = new List<int> {};
             
             // preenche intAverage com o tamanho de cada string
             foreach( string substring in listStr )
@@ -125,20 +140,20 @@ namespace SimpleTasks
             // reformula intAverage com o calculo da media de tamanho das strings
             intAverage /= listStr.Count;
 
-            // removendo strings com tamanho inferior
-            for( int rep = 0; rep < listStr.Count; rep++ )
+            // preeche com os índices de cada string com tamanho inferior/igual à média
+            for(int rep = 0; rep < listStr.Count; rep++)
             {
                 if(listStr[rep].Length <= intAverage)
-                    listStr.RemoveAt(rep);
+                    listIndex.Add(rep);
             }
+            
+            // remove os elementos correspondentes aos índices
+            for(int index = 0; index < listIndex.Count; index++)
+                listStr.RemoveAt(listIndex[index] - index);            
 
             return listStr;
-        }
-        
-        // método acima está com um problema, não está filtrando adequadamente
-        // ao remover o item, diminui a quantidade de loop e não pega todos os elementos
-        // a cada loop,o indices/elementos são reorganizados devido ao listStr.Remove()
-
-        // vou corrigir logo em breve e mostrar outra alternativa mais benéfica
+        }   
     }
+
 }
+
