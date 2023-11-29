@@ -62,7 +62,7 @@ namespace SimpleTasks
             
             // countConsoant possui cada indice correspondendo a cada string de subString
             string[] subStrings = str.Split(' ');
-            int[] countConsoant = new int[subStrings.Length];
+            int[] arrayCountConsoant = new int[subStrings.Length];
 
             // preenche countConsoant com a frequencia de consoantes de cada substring
             for(int rep = 0; rep < subStrings.Length; rep++)
@@ -70,12 +70,12 @@ namespace SimpleTasks
                 foreach( char ch in subStrings[rep] )
                 {
                     if(!arrayVowels.Contains(ch) && !Char.IsDigit(ch))
-                        countConsoant[rep]++;
+                        arrayCountConsoant[rep]++;
                 }
             }
 
             // pegando o indice da substring com maior frequencia de consoante
-            int index = Array.IndexOf(countConsoant, countConsoant.Max());
+            int index = Array.IndexOf(arrayCountConsoant, arrayCountConsoant.Max());
             return subStrings[index];
         }
 
