@@ -132,7 +132,6 @@ namespace SimpleTasks
         public static List<string> ListStringAboveAverage(List<string> listStr)
         {
             int intAverage = 0;
-            List<int> listIndex = new List<int> {};
             
             // preenche intAverage com o tamanho de cada string
             foreach( string substring in listStr )
@@ -140,24 +139,18 @@ namespace SimpleTasks
             // reformula intAverage com o calculo da media de tamanho das strings
             intAverage /= listStr.Count;
 
-            // preeche com os índices de cada string com tamanho inferior/igual à média
+            List<string> listAux = new List<string> {};
+            // alimenta listAux com as strings de tamanho superior à média 
             for(int rep = 0; rep < listStr.Count; rep++)
             {
-                if(listStr[rep].Length <= intAverage)
-                    listIndex.Add(rep);
-            }
-            
-            // remove os elementos correspondentes aos índices
-            for(int index = 0; index < listIndex.Count; index++)
-                listStr.RemoveAt(listIndex[index] - index);            
+                if(listStr[rep].Length > intAverage)
+                    listAux.Add(listStr[rep]);
+            }         
 
-            return listStr;
+            return listAux;
         }   
 
 
-
-
-        
         // retorna lista com números inteiros
         public static List<int> ListIntOddNumbers( List<int> listInt )
         {
