@@ -143,6 +143,7 @@ namespace SimpleTasks
             }
             
             // remove os elementos correspondentes aos índices
+            // corrigindo o índice conforme reformula a lista ao remover cada elemento
             for(int index = 0; index < listIndex.Count; index++)
                 listStr.RemoveAt(listIndex[index] - index);            
 
