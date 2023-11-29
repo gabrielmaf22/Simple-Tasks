@@ -1,3 +1,12 @@
+# Nomenclatura
+        
+        <> Casing             : Camel Case
+        <> Estrutura          : { tipo }                  { contexto }                    : intAverage       | inteiro que armazena a média
+                                        
+                              : { tipo coleção }          { contexto }                    : arrayVowels      | array que armazena vogais
+
+                              : { tipo retorno função }   { contexto }                    : CharMaxCount     | retorna char com incidência máxima de frequência                                                                                                      : ListIntOddNumbers| retorna lista de inteiro com números ímpares
+
 # Objetos Usados / Finalidade / Justificativa
 
         <> Dictionary         : contabilizar elementos                | evita redundância diante de elementos repetidos
