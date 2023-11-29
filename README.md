@@ -1,6 +1,7 @@
 # Nomenclatura
         
         <> Casing             : Camel Case
+        
         <> Estrutura          : { tipo }                  { contexto }                    : intAverage       | inteiro que armazena a média
                                         
                               : { tipo coleção }          { contexto }                    : arrayVowels      | array que armazena vogais
