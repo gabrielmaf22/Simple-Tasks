@@ -151,7 +151,7 @@ namespace SimpleTasks
         }   
 
 
-        // retorna lista com números inteiros
+        // retorna lista com números inteiros ímpares
         public static List<int> ListIntOddNumbers( List<int> listInt )
         {
             List<int> listAux = new List<int> {};
